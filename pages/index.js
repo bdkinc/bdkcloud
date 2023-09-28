@@ -1,82 +1,127 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { Card, CardTitle, CardBody } from "../components/Card.js";
+import CheckCircle from "../components/CheckCircle.js";
+import ContactForm from "../components/ContactForm.js";
 
 export default function Home() {
+  const offerings = [
+    {
+      title: "Hosted Power",
+      description: "IBMi, Power Linux, AIX",
+    },
+    {
+      title: "Hosted Intel",
+      description: "VMWare, Windows, Linux",
+    },
+    {
+      title: "ERP Hosting",
+      description: "Manufacturing, Distribution, Lansa ERP",
+    },
+    {
+      title: "EDI Hosting",
+      description: "AS2, 850, Automation",
+    },
+    {
+      title: "Application Hosting",
+      description: "Windows, Linux, Power",
+    },
+    {
+      title: "Web Hosting",
+      description: "Apache, Nginx, Ruby, PHP, Node, Lansa, Docker",
+    },
+  ];
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center py-2">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>BDKcloud :: Home</title>
       </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <h1 className="hidden">BDKcloud Home</h1>
+      <main className="container">
+        <div className="md:grid md:grid-cols-6 gap-8">
+          <div className="col-span-6">
+            <div
+              className="w-full server-fade pt-24 mb-12 relative border-r-4 border-bdk-blue rounded"
+              style={{ height: "36rem" }}
+            >
+              <div className="absolute top-0 right-0 w-2/3 h-1 bg-gradient-to-l from-bdk-blue" />
+              <div className="max-w-lg mb-6">
+                <img className="text-white" src="/img/bdk.svg" alt="IBM logo" />
+              </div>
+              <h2 className="text-bdk-blue text-6xl font-bdk-blue font-semibold mb-3 text-orange-400">
+                Power in the Cloud
+              </h2>
+              <p className="text-2xl">
+                Your premier cloud provider. Providing solutions for hosted IBM
+                Power, Intel, and other *AAS offerings.
+              </p>
+              <div className="absolute bottom-0 right-0 w-2/3 h-1 bg-gradient-to-l from-bdk-blue" />
+            </div>
+          </div>
+          <Card className="col-span-2 mb-3">
+            <CardTitle>
+              <h3>Private Cloud</h3>
+            </CardTitle>
+            <CardBody>
+              <p>
+                Enhance your entire technical environment with dedicated cloud
+                hosting that connects your team to your corporate services
+                privately and securely.
+              </p>
+            </CardBody>
+          </Card>
+          <Card className="col-span-2 mb-3">
+            <CardTitle>
+              <h3>Hybrid Cloud</h3>
+            </CardTitle>
+            <CardBody>
+              <p>
+                Create the optimal cloud experience for your organization by
+                leveraging a combination of public and private hosting solutions
+                to meet the needs of all your applications.
+              </p>
+            </CardBody>
+          </Card>
+          <Card className="col-span-2 mb-3">
+            <CardTitle>
+              <h3>Public Cloud</h3>
+            </CardTitle>
+            <CardBody>
+              <p>
+                Whether it’s Office 365, websites, or web applications, your
+                organization can only benefit from our simplified planning,
+                deploying, and maintenance of your cloud solution.
+              </p>
+            </CardBody>
+          </Card>
+          <div className="col-span-3">
+            <div className="flex flex-col space-y-12 pt-12 mb-8">
+              {offerings.map((o) => (
+                <div className="flex space-x-8 items-center" key={o.title}>
+                  <span>
+                    <CheckCircle />
+                  </span>
+                  <div className="flex flex-col space-y-2">
+                    <h4 className="text-2xl font-semibold">{o.title}</h4>
+                    <div className="w-full h-1 bg-gradient-to-r from-bdk-blue" />
+                    <span className="text-2xl text-bdk-blue-darker dark:text-bdk-blue-lighter">
+                      {o.description}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="col-span-3">
+            <div className="pt-12 mb-8">
+              <h5 className="text-3xl font-semibold leading-loose">
+                Contact us
+              </h5>
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
     </div>
-  )
+  );
 }

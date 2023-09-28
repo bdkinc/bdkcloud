@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.server-fade {
+  background-image: url("/img/server_fade-min.png");
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.bg-clouds {
+  background-image: url("/img/cloud_bkg-min.png");
+  background-repeat: repeat-y;
+  background-size: 36%;
+}
